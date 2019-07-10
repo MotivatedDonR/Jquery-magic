@@ -1,0 +1,507 @@
+
+
+@import "base/reset";
+@import "base/typography";
+
+@import "helpers/variable";
+@import "helpers/funmixhelp";
+@import "helpers/font";
+
+@import "layout/form";
+@import "layout/header";
+@import "layout/footer";
+
+
+
+.content-wrap {
+
+	form {
+		button, .btn  {
+			min-width: 90px;
+			
+
+			& + button {
+				margin-left: 5px;
+			}
+		}
+	}
+	
+}
+
+
+
+/* Modal override */
+
+
+.modal-header {
+	h3 {
+		margin-bottom: 0;
+	}
+}
+
+@media all and(min-width: 576px) {
+	.modal-sm {
+		max-width: 425px;
+	}
+}
+.modal-dialog {
+	max-width: 630px;
+}
+.modal-content {
+	button {
+		min-width: 96px; 
+	}
+}
+
+
+/**  Dropdown Override **/
+
+.dropdown-toggle {
+
+	&::after {
+		border:none !important; 
+		content: "\f107" !important; font-family:"Font Awesome 5 Pro";
+		vertical-align: top; font-size: $font-20;
+	}
+}
+.dropdown-item {
+	padding-left: 15px;  padding-right: 15px; 
+}
+
+/* Bs4 Override  */
+
+.container {
+	max-width: 1170px;
+}
+
+
+/*  slick slider  */
+
+.slick-dots {
+	text-align: center;
+	li {
+		display: inline-block; margin:5px; line-height: 1;
+		width: auto !important; vertical-align: top;
+
+		button {
+			padding:0; margin:0; width: 10px; height: 10px;
+			border:none; background: $grey; @include border-radius(50%);
+			text-indent: -99999px; cursor: pointer;
+
+			&:hover {
+				background:$primary;
+			}
+			&:focus {
+				outline: none;
+			}
+		}
+		&.slick-active {
+			button {
+				background:$primary;
+			}
+		}
+	}
+}
+.slick-arrow {
+	position: absolute; top: 50%; margin-top: -15px;
+	z-index: 9; font-size: $font-18; text-indent: -99999px;
+	background: transparent; border:none; padding: 0;
+
+	&.slick-disabled {
+		&:before {
+			cursor: not-allowed; opacity: .4;
+		}
+		&:hover:before {
+			background: $grey;
+		}
+	}
+
+	&:before {
+		background:$grey-dark; color: $white;
+		width: 30px; height: 30px;
+		text-align: center; line-height: 20px;
+		padding:5px; cursor: pointer; 
+		font-family:"Font Awesome 5 Pro";
+		position: absolute; text-indent: 1px;
+		position: absolute; 
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&:hover:before {
+		background: $primary; color: $white;
+	}
+	&.slick-prev {
+		left: 0px;
+		&:before {
+			content:"\f053"; left: 0;
+		}
+	}
+	&.slick-next {
+		right: 0px;
+		&:before {
+			content:"\f054";  right: 0;
+		}
+	}
+
+}
+
+
+.link-skyblue {
+	color: $skyblue;
+	text-decoration: underline;
+}
+
+
+/*filter color*/
+
+.la, .sa, .xsa, .xla, .ma, .xlb, .lb, .mb, .sb, .xsb, .xlc, .lc, .mc, .sc, .xsc, .xlr, .lr, .mr, .sr, .xsr {
+	@include border-radius(50%);
+	min-width: 36px; min-height: 36px;
+	text-align: center; line-height: 32px;
+	padding: 0 5px; display: inline-block;
+	border:solid 2px $olive;
+	color: $black; 	text-decoration: underline;
+} 
+.la {
+	background: $red-dark2; color: $white;	
+}
+.xsa {
+	background: $olive-dark; @include border-radius(18px);
+	padding: 0 7px; color: $white;
+}
+.ma {
+	background: $blue-dark2; color: $white;	
+}
+.sa {
+	background: $green-dark; color: $white;	
+}
+.xla {
+	background: $black;	@include border-radius(18px);
+	padding: 0 7px; color: $white;
+}
+.xlb {
+	background: $grey-dark2; @include border-radius(18px);
+	padding: 0 7px; border-color: $grey-dark2;	
+} 
+.lb {
+	background: $red-light1; border-color: $red-light1;
+}
+.mb {
+	background: $skyblue; border-color: $skyblue;
+}
+.sb {
+	background: $green; border-color: $green;
+}
+.xsb {
+	background: $yellow2; border-color: $yellow2;
+	@include border-radius(18px); padding: 0 7px;
+}
+.xlc {
+	background: $grey2; border-color: $grey2;
+	@include border-radius(18px); padding: 0 7px;
+}
+.lc {
+	background: $red-light; border-color: $red-light;
+}
+.mc {
+	background: $blue-light; border-color: $blue-light;
+}
+.sc {
+	background: $green-light2; border-color: $green-light2;
+}
+.xsc {
+	background: $yellow-light; border-color: $yellow-light;
+	@include border-radius(18px); padding: 0 7px;
+}
+.xlr {	
+	border-color: $black; @include border-radius(18px);
+	padding: 0 7px;
+}
+.lr {	
+	border-color: $red-light1;	
+}
+.mr {	
+	border-color: $skyblue;
+}
+.sr {
+	border-color: $green;
+}
+.xsr {
+	border-color: $yellow2; @include border-radius(18px);
+	padding: 0 7px;
+}
+
+
+
+
+/*on-off-switch start*/
+.on-offbtn {
+	margin-top: 10px;
+	input[type="checkbox"] {
+		width: 100%;
+	}
+}
+.myonoffswitch-checkbox {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 9;
+  cursor: pointer; 
+  height: 100%;
+}
+
+.myonoffswitch {
+  position: relative;
+  width: 116px;
+  height: 40px;
+  display: inline-block;
+  margin-left: 0px; }
+
+.myonoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;  
+  border-radius: 25px;
+  padding-bottom: 0 !important;
+  height: 40px;
+  background-color: $skyblue;
+  font-size: $font-16;
+  position: relative; 
+  color:$white;
+}
+
+.myonoffswitch-inner {
+  float: left;
+  margin-left: 0;
+  transition: margin 0.3s ease-in 0s;
+  background-color: $red;
+  width: 116px;
+  display: block;
+  color: $white;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 15px; }
+
+.myonoffswitch-switch {
+  height: 40px;
+  transition: all 0.3s ease-in 0s;
+  width: 70px;
+  float: left;
+  display: block;
+  text-align: right;
+  line-height: 40px; 
+}
+
+.myonoffswitch-circle {
+  width: 40px;
+  height: 40px;
+  background: $white;
+  border: solid 1px $grey;
+  border-radius: 50%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transition: all 0.3s ease-in 0s; 
+}
+
+.onofftravelbox {
+  position: relative;
+  left: -100px;
+  width: 200%;
+  transition: all 0.3s ease-in 0s; 
+}
+
+.travelon-onoff {
+  left: 0px; 
+}
+
+.circletravel {
+  left: 76px; 
+}
+
+
+/*small on-off-switch*/
+.myonoffswitch-checkbox2 {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 9;
+  cursor: pointer; 
+  height: 100%;
+  left: 0;
+}
+.myonoffswitch2 {
+  position: relative;
+  width: 77px;
+  height: 30px;
+  display: inline-block;
+  margin-left: 0px; }
+
+.myonoffswitch-label2 {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;  
+  border-radius: 20px;
+  padding-bottom: 0 !important;
+  height: 30px;
+  background-color: $green3;
+  font-size: $font-16;
+  position: relative; 
+  color: $grey-dark;
+}
+
+.myonoffswitch-inner2 {
+  float: left;
+  margin-left: 0;
+  transition: margin 0.3s ease-in 0s;
+  background-color: $grey;
+  width: 77px;
+  display: block;
+  color: $grey-dark;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 8px; 
+  text-align: left;
+}
+
+.myonoffswitch-switch2 {
+  height: 30px;
+  transition: all 0.3s ease-in 0s;
+  width: 55px;
+  float: left;
+  display: block;
+  text-align: right;
+  line-height: 30px; 
+}
+
+.myonoffswitch-circle2 {
+  width: 30px;
+  height: 30px;
+  background: $white;
+  border: solid 1px $grey;
+  border-radius: 50%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transition: all 0.3s ease-in 0s; 
+}
+
+.onofftravelbox2 {
+  position: relative;
+  left: -60px;
+  width: 200%;
+  transition: all 0.3s ease-in 0s; 
+}
+
+.travelon-onoff2 {
+  left: 0px; 
+}
+
+.circletravel2 {
+  left: 47px; 
+}
+
+/*on-off-switch end*/
+
+.bootstrap-select {
+	.btn {
+		background: $white;
+		border:solid 1px $border;
+		color: $grey-dark;
+	}
+}
+
+
+/*Multiple Select with Checkbox start*/
+.select2-container {
+	width: 100% !important;
+}
+.select2-results__option {
+  padding-right: 20px;
+  vertical-align: middle;
+  padding: 6px 10px !important;	 
+}
+.select2-results__option:before {
+  content: "";
+  display: inline-block;
+  position: relative;
+  height: 30px;
+  width: 30px;
+  border: 1px solid $border;
+  border-radius: 4px;
+  background-color: $white;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+.select2-results__option[aria-selected=true]:before {
+  font-family:fontAwesome;
+  content: "\f00c";
+  color: $blue;
+  background-color: $white;  
+  display: inline-block;
+  padding-left: 5px;
+  font-size: $font-20;
+}
+.select2-container--default .select2-results__option[aria-selected=true] {
+	background-color: $white !important;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+	background-color: $white !important;
+	color: $black !important;
+}
+.select2-container--default .select2-selection--multiple {	
+	min-height: 50px !important;
+}
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
+	border-radius: 4px;
+}
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+	border-color: #00B9FF !important;	
+	box-shadow: 0 0 5px #00B9FF;
+    -webkit-box-shadow: 0 0 5px #00B9FF;
+}
+.select2-container--default .select2-selection--multiple {
+	border-width: 2px;
+	border-radius: 10px !important;
+}
+.select2-container--open .select2-dropdown--below {	
+	border-radius: 10px !important;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.select-icon .select2-selection__placeholder .badge {
+	display: none;
+}
+.select-icon .placeholder {
+	display: none;
+}
+.select-icon .select2-results__option:before,
+.select-icon .select2-results__option[aria-selected=true]:before {
+	display: none !important;	
+}
+.select-icon  .select2-search--dropdown {
+	display: none;
+}
+.select2-container .select2-search--inline .select2-search__field {
+	margin-top: 3px !important;
+	height: 40px;
+}
+.select2-container--default .select2-results>.select2-results__options {
+	border-radius: 10px !important;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice {	
+	background-color: $grey-lighter !important;
+    padding: 5px 12px !important;
+    border-radius: 10px !important;
+    border:none !important;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__rendered {
+	padding: 0 10px !important;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+	float: right; margin-left: 10px;
+}
+/*Multiple Select with Checkbox end*/
