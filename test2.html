@@ -1,0 +1,146 @@
+<html>
+    <head>
+        <!-- <script src='./js/jquery-1.4.2.min.js' type='text/javascript'></script> -->
+        <!-- <script src='./js/jquery-swapsies.js' type='text/javascript'></script> -->
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                background: #434234;
+            }
+
+            #div_3 {
+                background: green;
+            }
+
+            #div_4 {
+                background: blue;
+            }
+            .kds {
+                list-style-type: none;
+            }
+
+            .kds li {
+                padding: 5px;
+                border: 1px solid gray;
+                margin: 1px;
+                position:relative;
+            }
+            .kds li div {
+                padding: 5px;
+                border: 1px solid gray;
+                margin: 1px;
+                position: relative;
+            }
+
+            .currentSelection {
+                background-color: gray;
+            }
+        </style>
+    </head>
+    <body>
+            <!-- <div id="div_1">THIS IS DIV 1</div>
+            <div id="div_2">THIS IS DIV 2</div>
+            <div id="div_3">THIS IS DIV 3</div>
+            <div id="div_5">THIS IS DIV 5</div>
+            <div id="div_6">THIS IS DIV 6</div>
+            <div id="div_4">THIS IS DIV 4</div>
+ 
+            <a href="javascript://" class="go-swap">Go Swap!</a>  -->
+            <ul class="kds">
+                <li>tile dtls1
+                    <div>I am absolute</div>
+                </li>
+                <li>tile dtls2
+                        <div>I am absolute</div>
+
+                </li>
+                <li>tile dtls3
+                        <div>I am absolute</div>
+
+                </li>
+                <li>tile dtls4
+                        <div>I am absolute</div>
+
+                </li>
+                <li>tile dtls5
+                        <div>I am absolute</div>
+
+                </li>
+                <li>tile dtls6
+                        <div>I am absolute</div>
+
+                </li>
+            </ul>
+            <a class='previous' style='text-decoration: none'>previous</a>
+            <br>
+            <a class='next' style='text-decoration: none'>next</a>
+            <br>
+            <a class='gotop', style='text-decoration: none'>Go top</a>
+    </body>
+    <script>
+        // $(document).ready(function () {
+        //     $(".go-swap").click(function () {
+        //         $("#div_3").swap({
+        //             target: "div_4", // Mandatory. The ID of the element we want to swap with  
+        //             opacity: "0.5", // Optional. If set will give the swapping elements a translucent effect while in motion  
+        //             speed: 1000, // Optional. The time taken in milliseconds for the animation to occur  
+        //             callback: function () { // Optional. Callback function once the swap is complete  
+        //             }
+        //         });
+        //     });
+        // });
+        $(document).ready(function() {
+
+            $('.previous').click(function() {
+                var current = $('.currentSelection');
+                console.log(current.index());
+                if( current.index() != 0 && !current.is(":animated") ){
+                    currentTop = parseInt(current.css("top").replace("px",""));
+                    current.animate({top:currentTop - 33 })
+                    current.prev().animate({top:currentTop + 33},function(){
+                        current.css("top",0).prev().css("top",0);
+                        current.prev().before(current);
+                    })
+                }
+            });
+
+            $('.next').click(function() {
+                var current = $('.currentSelection');
+                if( current.index() != ( $(".kds li").length-1)  && !current.is(":animated") ){
+                    currentTop = parseInt(current.css("top").replace("px",""));
+                    current.animate({top:currentTop + 33 })
+                    current.next().animate({top:currentTop - 33},function(){
+                        current.css("top",0).next().css("top",0);
+                        current.next().after(current);
+                    })
+                }
+            });
+
+            $('.gotop').click(function() {
+                var current = $('.currentSelection');
+                const index = current.index();
+                if( current.index() != 0  && !current.is(":animated") ){
+
+                    currentTop = parseInt(current.css("top").replace("px",""));
+
+                    current.prevAll().animate({top:currentTop + 33}, 3000);
+                    current.animate({top:currentTop - 33 * index }, 3011, function(){
+                        current.css("top",0).prevAll().css("top", 0);
+                        current.siblings().first().before(current);
+
+                    });
+
+                }
+            });
+
+            $(".kds li").on("click", function() {
+                $(this).css("top","0px");
+            $(".kds li").removeClass("currentSelection");
+                 $(this).addClass("currentSelection");
+            });
+
+        });
+    </script>
+</html>
